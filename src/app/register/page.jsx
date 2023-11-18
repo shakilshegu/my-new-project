@@ -7,13 +7,15 @@ const defaultData = { name: "", email: "", password: "" };
 const Register = () => {
   const [data, setData] = useState(defaultData);
   const onValueChange = (e) => {
-    setData({ ...data, [e.targest.name]: e.targest.value });
+    setData({ ...data, [e.targest.name]:e.targest.value });
   };
   const onRegister = (e) => {
     e.preventDefault();
     if(!data.name || !data.email || !data.password){
         alert("please fill all mandatory fildes")
+        return
     }
+    //api call
   };
   return (
     <div className="min-h-screen bg-slate-300 flex flex-col justify-center items-center ">

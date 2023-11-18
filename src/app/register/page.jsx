@@ -7,7 +7,7 @@ const defaultData = { name: "", email: "", password: "" };
 const Register = () => {
   const [data, setData] = useState(defaultData);
   const onValueChange = (e) => {
-    setData({ ...data, [e.targest.name]:e.targest.value });
+    setData({ ...data, [e.targest.name]: e.targest.value });
   };
   const onRegister = (e) => {
     e.preventDefault();

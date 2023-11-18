@@ -3,17 +3,17 @@ import { useState } from "react";
 import Input from "../components/input";
 import Link from "next/link";
 
-const defaultData = { name: "", email: "", password: "" };
+const defaultData = { email: "", password: "" };
 const Login = () => {
   const [data, setData] = useState(defaultData);
   const onValueChange = (e) => {
-    setData({ ...data, [e.targest.name]:e.targest.value });
+    setData({ ...data, [e.targest.email]: e.targest.value });
   };
-  const onRegister = (e) => {
+  const onLogin = (e) => {
     e.preventDefault();
-    if(!data.name || !data.email || !data.password){
-        alert("please fill all mandatory fildes")
-        return
+    if (!data.email || !data.password) {
+      alert("please fill all mandatory fildes");
+      return;
     }
     //api call
   };
@@ -24,13 +24,6 @@ const Login = () => {
           Login
         </h1>
         <form action="">
-          <Input
-            label="Name"
-            id="name"
-            type="text"
-            value={data.name}
-            onChage={(e) => onValueChange(e)}
-          />
           <Input
             label="Email"
             Id="email"
@@ -47,15 +40,15 @@ const Login = () => {
           />
           <button
             className=" bg-black hover:bg-slate-500 text-white py-2 px-4 rounded  w-full  "
-            onClick={(e) => onRegister(e)}
+            onClick={(e) => onLogin(e)}
           >
             Submit
           </button>
           <p className="mt-4 text-center  ">
-            Already have an account ?
-            <Link href="/login" className="text-blue-500 hover:underline">
+            Don't have an account ?
+            <Link href="/register" className="text-blue-500 hover:underline">
               {" "}
-              Login
+              Signup
             </Link>
           </p>
         </form>
